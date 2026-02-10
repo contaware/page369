@@ -110,8 +110,10 @@
                         </li>
                     </ul>
                 </div>
-                <form class="d-none d-lg-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search">
+                <form class="d-none d-lg-flex" action="https://www.google.com/search" target="_blank">
+                    <input type="search" name="q" class="form-control me-2" maxlength="200" placeholder="Search">
+                    <!-- Change the value attribute to your live site -->
+                    <input type="hidden" name="sitesearch" value="contaware.com">
                     <button type="submit" class="btn btn-outline-warning">Search</button>
                 </form>
             </div>
