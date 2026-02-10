@@ -8,6 +8,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        :root {
+            --my-navbar-padding-y: 0.5rem;   /* default: 0.5rem */
+            --my-brand-padding-y: 0.3125rem; /* default: 0.3125rem */
+            --my-brand-img-height: 60px;     /* must be taller than the navbar text (that's to have the navbar height calc work) */
+            --calc-navbar-height: calc(var(--my-brand-img-height) + 2 * var(--my-brand-padding-y) + 2 * var(--my-navbar-padding-y));
+        }
+        .navbar {
+            /* Override paddings */
+            --bs-navbar-padding-y: var(--my-navbar-padding-y);
+            --bs-navbar-brand-padding-y: var(--my-brand-padding-y);
+        }
+        a.navbar-brand img {
+            height: var(--my-brand-img-height);
+        }
+        html {
+            /* Prevent anchor links from scrolling behind the fixed navbar */
+            scroll-padding-top: var(--calc-navbar-height);
+        }
+        main {
+            /* We need some spacing because of the fixed navbar */
+            padding-top: var(--calc-navbar-height);
+        }
+        img.viewport-fit {
+            width: 100%;
+            height: calc(100vh - var(--calc-navbar-height));
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Breakpoint indicator (remove that for production) */
         body::before {
             content: "xs";
             color: red;
@@ -16,6 +46,7 @@
             position: fixed;
             top: 14px;
             right: 17px;
+            z-index: 1100;
         }
         @media (min-width: 576px) {
             body::before {
@@ -45,12 +76,198 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="display-1">We will have fun!</div>
-    </div>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm bg-dark">
+            <div class="container">
+                <a href="#" class="navbar-brand">
+                    <img src="img/logoipsum-265(onlylogo).png" alt="logo" class="d-inline-block align-middle">
+                    <span class="align-middle fs-1">Brand</span>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#my-nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="my-nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#team" class="nav-link">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#slideshow" class="nav-link">Slideshow</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#action" class="dropdown-item">Action</a></li>
+                                <li><a href="#another" class="dropdown-item">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="#other" class="dropdown-item">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <form class="d-none d-lg-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button type="submit" class="btn btn-outline-warning">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- We are the best -->
+        <section class="container g-5 pt-5">
+            <div class="row g-5">
+                <div class="col-md-4 bg-primary-subtle rounded">
+                    <section class="p-3">
+                        <img src="img/undraw_security-on_3ykb.png" class="img-fluid" alt="">
+                        <ol class="mt-3">
+                            <li>Lorem ipsum dolor sit <code>amet</code>, consectetur adipisicing elit. Eaque neque corrupti quam.</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Eaque neque corrupti quam.</li>
+                        </ol>
+                    </section>
+                </div>
+                <div class="col-md-8">
+                    <section class="p-0 p-md-3 p-lg-5">
+                        <div class="display-2">We are the best</div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, ea quo illo excepturi dolorum laudantium velit omnis consectetur, aut atque est similique ducimus sit. Harum itaque nihil nobis atque laboriosam!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos delectus, blanditiis voluptatum unde aut, dignissimos illum dolore possimus dicta ad est qui at minima dolorem fugit! Non cumque consequatur cum minus molestias voluptatem laborum. Possimus nostrum, nulla aperiam sed amet molestias quasi magnam laudantium sint repudiandae numquam voluptate ad quidem saepe eum? Velit ipsam eaque quibusdam quos, cumque quis illo tempora quas, doloribus, nisi cupiditate temporibus error eligendi?</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discount 50% -->
+        <section class="container-fluid mt-5 p-5 shadow-sm text-light bg-danger">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="d-none d-md-block vr bg-light h-100" style="width: 5px;"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mx-auto mx-md-0 display-1" style="width: fit-content;">DISCOUNT<br>50% OFF</div>
+                </div>
+                <div class="col-md-4 ">
+                    <img src="img/undraw_discount_igfl.svg" class="d-block mt-5 mt-md-0 mx-auto mw-100" style="height: 240px;" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- Our super team! -->
+        <section id="team" class="container-fluid mt-5 p-5">
+            <div class="display-1 text-center mb-5">Our super team!</div>
+            <div class="row">
+                <div class="col-md">
+                    <figure class="figure p-1 p-sm-4 p-md-3 p-lg-4 p-xl-5 d-block mx-auto" style="max-width: 400px;">
+                        <img src="img/uifaces-human-avatar(1).jpg" class="figure-img img-fluid rounded-circle shadow-sm" alt="">
+                        <figcaption class="figure-caption fs-5 fst-italic text-center">Melanie Schenker</figcaption>                    
+                    </figure>
+                </div>
+                <div class="col-md">
+                    <figure class="figure p-1 p-sm-4 p-md-3 p-lg-4 p-xl-5 d-block mx-auto" style="max-width: 400px;">
+                        <img src="img/uifaces-human-avatar.jpg" class="figure-img img-fluid rounded-circle shadow-sm" alt="">
+                        <figcaption class="figure-caption fs-5 fst-italic text-center">Eric Tordes</figcaption>                    
+                    </figure>
+                </div>
+                <div class="col-md">
+                    <figure class="figure p-1 p-sm-4 p-md-3 p-lg-4 p-xl-5 d-block mx-auto" style="max-width: 400px;">
+                        <img src="img/uifaces-popular-avatar.jpg" class="figure-img img-fluid rounded-circle shadow-sm" alt="">
+                        <figcaption class="figure-caption fs-5 fst-italic text-center">Selena Johns</figcaption>                    
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carousel -->
+        <section id="slideshow" class="carousel slide carousel-fade">
+            <div class="carousel-indicators">
+                <!-- Set the beginning image with active -->
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Set the beginning image with active -->
+                <div class="carousel-item active">
+                    <img src="img/pexels-michael-schlierf-757699958-33315262.jpg" alt="pict1" class="viewport-fit">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pexels-septimiu-lupea-271955805-35074258.jpg" alt="pict2" class="viewport-fit">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pexels-yaroslav-shuraev-4510854.jpg" alt="pict3" class="viewport-fit">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="carousel-control-prev" data-bs-target="#slideshow" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button type="button" class="carousel-control-next" data-bs-target="#slideshow" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </section>
+
+        <!-- Subscription Cards -->
+
+    </main>
+    
+    <footer class="bg-dark text-center text-md-start text-white position-relative">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mx-auto" style="width: fit-content;">
+                        <p class="lead">
+                            Copyright &copy; <script>document.write(new Date().getFullYear());</script> contaware.com<br>
+                            <i class="bi bi-house-heart-fill"></i> Brand company<br>
+                            <a href="https://www.example.com" class="link-warning" target="_blank">www.example.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mx-auto" style="width: fit-content;">
+                        <p class="lead">John&nbsp;Doe<br>123&nbsp;Some&nbsp;Street<br>Anytown,&nbsp;PA&nbsp;12345</p>
+                        <p class="lead">+1&nbsp;(123)&nbsp;555-0123<br><a href="mailto:name@example.com" class="link-warning">name@example.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="position-absolute bottom-0 end-0 py-5 px-3 px-sm-5 link-light">
+                        <i class="bi-arrow-up-circle fs-1 mb-0"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Always place this before the body closing tag.
          For production use the corresponding *.min.js version. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+
+    <!-- When we click a navbar link in an open collapse navbar, the link 
+         is followed, but the navbar is not hidden. For single page sites, 
+         it's usually desirable to hide the navbar after a link click: -->
+    <script>
+        const navLinks = document.querySelectorAll('a.navbar-brand, .nav-item:not(.dropdown) a.nav-link, .nav-item.dropdown a.dropdown-item');
+        const menuToggle = document.getElementById('my-nav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => {
+                bsCollapse.hide();
+            });
+        });
+    </script>
 </body>
 </html>
