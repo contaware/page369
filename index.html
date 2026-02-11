@@ -103,9 +103,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#services" class="dropdown-item">Services</a></li>
+                                <li><a href="#newsletter" class="dropdown-item">Newsletter</a></li>
+                                <li><a href="#faq" class="dropdown-item">FAQ</a></li>
+                                <li><a href="#contact" class="dropdown-item">Contact</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a href="https://www.contaware.com" class="dropdown-item" target="_blank">contaware.com</a></li>
-                                <li><a href="https://github.com/contaware" class="dropdown-item" target="_blank">GitHub</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -121,7 +123,7 @@
     </header>
 
     <main>
-        <!-- We are the best -->
+        <!-- Showcase -->
         <section class="container g-5 pt-5">
             <div class="row g-5">
                 <div class="col-md-4 bg-primary-subtle rounded">
@@ -135,9 +137,10 @@
                 </div>
                 <div class="col-md-8">
                     <section class="p-0 p-md-3 p-lg-5">
-                        <div class="display-2">We are the best</div>
+                        <h1>Become a <span class="text-warning">Lorem</span></h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, ea quo illo excepturi dolorum laudantium velit omnis consectetur, aut atque est similique ducimus sit. Harum itaque nihil nobis atque laboriosam!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos delectus, blanditiis voluptatum unde aut, dignissimos illum dolore possimus dicta ad est qui at minima dolorem fugit! Non cumque consequatur cum minus molestias voluptatem laborum. Possimus nostrum, nulla aperiam sed amet molestias quasi magnam laudantium sint repudiandae numquam voluptate ad quidem saepe eum? Velit ipsam eaque quibusdam quos, cumque quis illo tempora quas, doloribus, nisi cupiditate temporibus error eligendi?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos delectus, blanditiis voluptatum unde aut, dignissimos illum dolore possimus dicta ad est qui at minima dolorem fugit! Non cumque consequatur cum minus molestias voluptatem laborum.</p>
+                        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Start Enrollment</button>
                     </section>
                 </div>
             </div>
@@ -160,7 +163,7 @@
 
         <!-- Our super team! -->
         <section id="team" class="container-fluid mt-5 p-5">
-            <div class="display-1 text-center mb-5">Our super team!</div>
+            <h1 class="text-center mb-5">Our super team!</h1>
             <div class="row">
                 <div class="col-md">
                     <figure class="figure p-1 p-sm-4 p-md-3 p-lg-4 p-xl-5 d-block mx-auto" style="max-width: 400px;">
@@ -224,8 +227,8 @@
         </section>
 
         <!-- Services Cards -->
-        <section id="services" class="container g-5 my-5 p-5">
-            <div class="display-1 text-center mb-5">Services</div>
+        <section id="services" class="container g-5 mt-5 p-5">
+            <h1 class="text-center mb-5">Services</h1>
             <div class="row g-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
                 <div class="col">
                     <div class="card mx-auto h-100 overflow-hidden" style="width: 300px">
@@ -257,6 +260,77 @@
                         </div>
                         <div class="card-footer"><a href="#services" class="btn btn-secondary">Click3</a></div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section id="newsletter" class="mt-5 bg-primary text-light">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md">
+                        <h3 class="pt-5 pb-2 py-md-5">Sign Up for Our Newsletter</h3>
+                    </div>
+                    <div class="col-md">
+                        <div class="pb-5 p-md-0 input-group">
+                            <input type="email" class="form-control" placeholder="Enter Email">
+                            <button type="button" class="btn btn-dark btn-lg">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="bg-body-tertiary">
+            <div class="container p-5">
+                <h1 class="text-center mb-5">Frequently Asked Questions</h1>
+                <div class="accordion" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">Item 1</button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body"><strong>This is the first item.</strong><br>bla bla...</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Item 2</button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body"><strong>This is the second item.</strong><br>bla bla...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact and Map -->
+        <section id="contact" class="bg-info-subtle">
+            <div class="container g-5 p-5">
+                <div class="row g-5 justify-content-around align-items-end">
+                    <div class="col-lg">
+                        <h1 class="text-center mb-4">Contact Info</h1>
+                        <ul class="list-group list-group-flush lead">
+                            <li class="list-group-item">
+                                <span class="fw-bold">Office Location:</span> 123 Some Street
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Working hours:</span> 9am to 6pm (Mon - Fri)
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Main Phone:</span> +1 (123) 555-0123
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Inquiry Email:</span> info@example.com
+                            </li>
+                            <li class="list-group-item">
+                                <span class="fw-bold">Internet Site:</span> www.example.com
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2834.765725614819!2d12.489655975759568!3d41.890214164656115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColosseum!5e1!3m2!1sen!2sch!4v1770838986856!5m2!1sen!2sch" width="600" height="320" style="display: block; border: 0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
         </section>
