@@ -10,15 +10,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --my-navbar-padding-y: 0.5rem;   /* default: 0.5rem */
-            --my-brand-padding-y: 0.3125rem; /* default: 0.3125rem */
-            --my-brand-img-height: 60px;     /* must be taller than the navbar text (that's to have the navbar height calc work) */
+            /* Navbar spacing and height */
+            --my-navbar-padding-y: 0.5rem;          /* default: 0.5rem */
+            --my-brand-padding-y: 0.3125rem;        /* default: 0.3125rem */
+            --my-navbar-toggler-padding-y: 0.25rem; /* default: 0.25rem */
+            --my-navbar-toggler-font-size: 1.25rem; /* default: 1.25rem */ 
+            --my-brand-img-height: 60px; /* must be taller than the navbar text (that's to have the navbar height calc work) */
             --calc-navbar-height: calc(var(--my-brand-img-height) + 2 * var(--my-brand-padding-y) + 2 * var(--my-navbar-padding-y));
         }
+        @media (width < 576px) { /* for xs displays */
+            a.navbar-brand {
+                /* Make the toggle wrap */
+                width: 100%;
+
+                /* As toggle wraps, we can remove the right margin */
+                --bs-navbar-brand-margin-end: 0;
+            }
+            :root {
+                /* New calculation that includes the toggle */
+                --calc-navbar-height: calc(var(--my-brand-img-height) + 2 * var(--my-brand-padding-y) + 2 * var(--my-navbar-padding-y) + 2 * var(--my-navbar-toggler-padding-y) + 1.5 * var(--my-navbar-toggler-font-size));
+            }
+        }
         .navbar {
-            /* Override paddings */
+            /* Override */
             --bs-navbar-padding-y: var(--my-navbar-padding-y);
             --bs-navbar-brand-padding-y: var(--my-brand-padding-y);
+            --bs-navbar-toggler-padding-y: var(--my-navbar-toggler-padding-y);
+            --bs-navbar-toggler-font-size: var(--my-navbar-toggler-font-size);
         }
         a.navbar-brand img {
             max-width: 100%;
